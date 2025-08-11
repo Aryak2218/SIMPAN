@@ -43,30 +43,9 @@
             </p>
 
             {{-- Konten Lengkap (jika login) --}}
-            {{-- auth --}}
             <p class="mb-6 text-gray-700 leading-relaxed">
                 {{ $artikel->isi }}
             </p>
-
-            {{-- Menampilkan File SPBE --}}
-            {{-- @if($artikel->spbe && $artikel->spbe->file_path)
-                <a href="{{ asset('storage/' . $artikel->spbe->file_path) }}" class="btn btn-success mt-3" target="_blank">
-                    <i class="fas fa-download"></i> Download Dokumen
-                </a>
-            @else
-                <p class="mt-3">Dokumen tidak tersedia.</p>
-            @endif --}}
-            {{-- endauth --}}
-
-            {{-- Box login (jika belum login) --}}
-            <div class="border border-gray-300 p-6 rounded-lg bg-gray-50 text-center">
-                {{-- <p class="text-lg font-medium mb-4">🔒 Buat akun untuk membaca artikel lengkapnya</p> --}}
-                {{-- <p class="mb-4 text-sm text-gray-600">Untuk membaca artikel lengkapnya, silahkan login terlebih dahulu</p> --}}
-                <div class="flex justify-center gap-6">
-                    {{-- <a href="{{ route('login') }}" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">Masuk</a> --}}
-                    {{-- <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Daftar sekarang</a> --}}
-                </div>
-            </div>
         </div>
 
         {{-- Navigasi Kanan --}}

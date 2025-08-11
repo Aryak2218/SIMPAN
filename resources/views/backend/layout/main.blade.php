@@ -248,7 +248,7 @@
   @yield('content')
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2025-2026 <a href="https://adminlte.io">KOMINFO</a>.</strong>
+    <strong>Copyright &copy; 2025-2026 <a href="{{ route('landing') }}">KOMINFO</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0

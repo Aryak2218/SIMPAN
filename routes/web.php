@@ -24,6 +24,7 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
 
 
+Route::get('artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
 
 // middleware auth
 Route::middleware(['auth'])->group(function () {
@@ -46,7 +47,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/artikel/create', [ArtikelController::class, 'create_artikel'])->name('artikel.create');
     Route::post('/artikel/store', [ArtikelController::class, 'store_artikel'])->name('artikel.store');
     Route::get('/artikel/edit/{id}', [ArtikelController::class, 'edit_artikel'])->name('artikel.edit');
-    Route::get('artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
     Route::put('/artikel/update/{id}', [ArtikelController::class, 'update_artikel'])->name('artikel.update');
     Route::delete('/artikel/destroy/{id}', [ArtikelController::class, 'destroy_artikel'])->name('artikel.destroy');
 

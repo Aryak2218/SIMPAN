@@ -76,25 +76,20 @@
 <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
         <div class="container text-center my-5 py-5">
-            <h3 class="text-white display-2 mb-1">SIMPAN LOMBOK BARAT</h3>
-            <h4 class="text-white mt-4 mb-2">SIMPAN (Sistem Informasi Manajemen Pengetahuan Nasional) LOMBOK BARAT</h4>
-            <h5 class="text-white mt-4 mb-5">Platform berbasis web yang dirancang untuk mengelola, menyimpan, dan berbagi pengetahuan terkait dengan Sistem Pemerintahan Berbasis Elektronik (SPBE) untuk meningkatkan kinerja pemerintah dan kualitas layanan publik
-            </h5>
-        <form action="{{ route('artikel.search') }}" method="GET" class="w-100">
-            <div class="input-group">
-                <input
-                    type="text"
-                    name="q"
-                    class="form-control border-light"
-                    style="padding: 30px 25px;"
-                    placeholder="Cari Pengetahuan"
-                    value="{{ request('q') }}"
-                >
-                <div class="input-group-append">
-                    <button class="btn btn-secondary px-4 px-lg-5" type="submit">Cari</button>
+            <h1 class="text-white display-1 mb-3">SIMP@N SPBE</h1>
+            <h2 class="text-white mt-4 mb-2">SIMP@N (Sistem Informasi Manajemen Pengetahuan Nasional) SPBE</h2>
+            <h4 class="text-white mt-4 mb-5">Platform berbasis web yang dirancang untuk mengelola, menyimpan, dan berbagi pengetahuan terkait dengan Sistem Pemerintahan Berbasis Elektronik (SPBE) untuk meningkatkan kinerja pemerintah dan kualitas layanan publik
+            </h4>
+
+            <!-- Form Pencarian -->
+            <form action="{{ route('landing') }}" method="GET" class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control border-light" style="padding: 30px 25px;" placeholder="Cari Artikel" value="{{ request()->get('search') }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary px-4 px-lg-5">Cari</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 <!-- Header End -->
@@ -102,10 +97,10 @@
 <!-- SPBE Articles Start -->
 <div class="container-fluid py-5">
     <div class="container">
-    <div class="section-title text-center mb-5"> <!-- Meningkatkan jarak bawah -->
-        <h2 class="d-inline-block position-relative text-uppercase pb-3" style="color: #007BFF;">Pengetahuan Terbaru</h2> <!-- Menambahkan padding bawah -->
-        <h1 class="display-4 mt-4">Cari Artikel Pengetahuan</h1> <!-- Menambahkan margin atas -->
-    </div>
+        <div class="section-title text-center mb-5">
+            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Pengetahuan Terbaru</h6>
+            <h1 class="display-4">Cari Artikel Pengetahuan</h1>
+        </div>
         <div class="row">
            @foreach ($artikel as $item)
                 @if ($item instanceof \App\Models\Artikel) <!-- Pastikan item adalah objek Artikel -->
@@ -115,15 +110,15 @@
                             @if ($item->thumbnail && file_exists(public_path($item->thumbnail)))
                                 <img src="{{ asset($item->thumbnail) }}" class="card-img-top" alt="article thumbnail">
                             @else
-                                <div class="card-img-top" style="background-color: #fbfafa; height: 180px; display: flex; justify-content: center; align-items: center;">
-                                    <span>Thumbnail Tidak Tersedia</span>  <!-- Tampilkan teks jika tidak ada thumbnail -->
+                                <div class="card-img-top" style="background-color: #f0f0f0; height: 180px; display: flex; justify-content: center; align-items: center;">
+                                    <span>No Thumbnail Available</span>  <!-- Tampilkan teks jika tidak ada thumbnail -->
                                 </div>
                             @endif
 
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->judul }}</h5>
                                 <p class="card-text">{{ Str::limit($item->excerpt, 100) }}</p>
-                                <a href="{{ route('artikel.show', $item->id) }}" class="btn btn-primary">Detail</a>
+                                <a href="{{ route('artikel.show', $item->id) }}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -150,7 +145,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4 mb-5">
-                    <h3 class="text-white mb-4">Informasi Tentang Kami</h3>
+                    <h3 class="text-white mb-4">Get In Touch</h3>
                     <p class="fs-2"><i class="fa fa-map-marker-alt mr-2"></i>Dasan Geres, Kec. Gerung, Kabupaten Lombok Barat, Nusa Tenggara Barat.</p>
                     <p class="fs-2"><i class="fa fa-envelope mr-2"></i>diskominfo@lombokbaratkab.go.id</p>
                     <p class="fs-2"><i class="fas fa-globe mr-2"></i></i>www.diskominfo.lombokbaratkab.go.id</p>
