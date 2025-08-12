@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SIMP@N SPBE</title>
+    <title>SIMPAN LOMBOK BARAT</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="SPBE Knowledge Sharing Platform" name="keywords">
     <meta content="Browse and download SPBE documents" name="description">
@@ -31,7 +31,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
             <a href="{{ route('landing') }}" class="navbar-brand ml-lg-3">
-                <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>SIMP@N SPBE</h1>
+                <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>SIMPAN LOMBOK BARAT</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -76,15 +76,14 @@
 <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
         <div class="container text-center my-5 py-5">
-            <h1 class="text-white display-1 mb-3">SIMP@N SPBE</h1>
-            <h2 class="text-white mt-4 mb-2">SIMP@N (Sistem Informasi Manajemen Pengetahuan Nasional) SPBE</h2>
-            <h4 class="text-white mt-4 mb-5">Platform berbasis web yang dirancang untuk mengelola, menyimpan, dan berbagi pengetahuan terkait dengan Sistem Pemerintahan Berbasis Elektronik (SPBE) untuk meningkatkan kinerja pemerintah dan kualitas layanan publik
-            </h4>
-
+            <h3 class="text-white display-2 mb-1">SIMPAN LOMBOK BARAT</h3>
+            <h4 class="text-white mt-4 mb-2">SIMPAN (Sistem Informasi Manajemen Pengetahuan Nasional) LOMBOK BARAT</h4>
+            <h5 class="text-white mt-4 mb-5">Platform berbasis web yang dirancang untuk mengelola, menyimpan, dan berbagi pengetahuan terkait dengan Sistem Pemerintahan Berbasis Elektronik (SPBE) untuk meningkatkan kinerja pemerintah dan kualitas layanan publik
+            </h5>
             <!-- Form Pencarian -->
-            <form action="{{ route('landing') }}" method="GET" class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
+            <form action="{{ route('landing') }}" method="GET" class="mx-auto mb-5" style="width: 100%; max-width: 800px;">
                 <div class="input-group">
-                    <input type="text" name="search" class="form-control border-light" style="padding: 30px 25px;" placeholder="Cari Artikel" value="{{ request()->get('search') }}">
+                    <input type="text" name="search" class="form-control border-light" style="padding: 30px 25px;" placeholder="Cari Pengetahuan" value="{{ request()->get('search') }}">
                     <div class="input-group-append">
                         <button class="btn btn-secondary px-4 px-lg-5">Cari</button>
                     </div>
@@ -98,7 +97,7 @@
 <div class="container-fluid py-5">
     <div class="container">
         <div class="section-title text-center mb-5">
-            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Pengetahuan Terbaru</h6>
+            <h2 class="d-inline-block position-relative text-uppercase pb-2" style="color: #007BFF;">Pengetahuan Terbaru</h2>
             <h1 class="display-4">Cari Artikel Pengetahuan</h1>
         </div>
         <div class="row">
@@ -139,13 +138,13 @@
             <div class="row">
                 <div class="col-md-6 mb-5">
                     <a href="{{ route('landing') }}" class="navbar-brand">
-                        <h1 class="mt-n2 text-uppercase text-white"><i class="fa fa-book-reader mr-3"></i>SIMP@N SPBE</h1>
+                        <h1 class="mt-n2 text-uppercase text-white"><i class="fa fa-book-reader mr-3"></i>SIMPAN LOMBOK BARAT</h1>
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 mb-5">
-                    <h3 class="text-white mb-4">Get In Touch</h3>
+                    <h3 class="text-white mb-4">Tentang Kami</h3>
                     <p class="fs-2"><i class="fa fa-map-marker-alt mr-2"></i>Dasan Geres, Kec. Gerung, Kabupaten Lombok Barat, Nusa Tenggara Barat.</p>
                     <p class="fs-2"><i class="fa fa-envelope mr-2"></i>diskominfo@lombokbaratkab.go.id</p>
                     <p class="fs-2"><i class="fas fa-globe mr-2"></i></i>www.diskominfo.lombokbaratkab.go.id</p>
