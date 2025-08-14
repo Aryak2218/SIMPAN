@@ -79,14 +79,6 @@ class LoginController extends Controller
 
         User::create($data);
 
-         $userId = Auth::id();
-         ActivityLog::create([
-            'user_id' => $userId,
-            'action' => 'Mendaftar akun',
-            'menu' => 'Halaman Register',
-            'ip_address' => $request->ip(),
-        ]);
-
         if (Auth::attempt(['NIK' => $request->NIK, 'password' => $request->password])) {
             return redirect()->route('dashboard');
         }else{
