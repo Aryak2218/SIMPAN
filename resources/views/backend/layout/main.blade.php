@@ -170,12 +170,6 @@
                   <p>Kategori Artikel</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{ route('banner') }}" class="nav-link">
-                  <i class="nav-icon fas fa-file-alt"></i>
-                  <p>Banner Artikel</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item menu">
@@ -196,7 +190,7 @@
                 </a>
             </li>
             <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('artikel.verifikasi') }}" class="nav-link">
               <i class="nav-icon fas fa-user-check"></i>
               <p>
                 Verifikasi Artikel

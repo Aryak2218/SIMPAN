@@ -1,21 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LogController;
-use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SPBEController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagArtikelController;
 use App\Http\Controllers\BannerArtikelController;
 use App\Http\Controllers\KategoriArtikelController;
-use App\Http\Controllers\TagArtikelController;
-use App\Http\Controllers\SPBEController;
+use App\Http\Controllers\ArtikelVerifikasiController;
 
 //Jangan Lupa ganti buat Landing Page
 Route::get('/', [LandingController::class, 'landing'])->name('landing');
-
+Route::get('artikel/show/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -23,8 +24,6 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
 
-
-Route::get('artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
 
 // middleware auth
 Route::middleware(['auth'])->group(function () {
@@ -48,6 +47,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/artikel/store', [ArtikelController::class, 'store_artikel'])->name('artikel.store');
     Route::get('/artikel/edit/{id}', [ArtikelController::class, 'edit_artikel'])->name('artikel.edit');
     Route::put('/artikel/update/{id}', [ArtikelController::class, 'update_artikel'])->name('artikel.update');
+    // Menampilkan artikel dengan status draft
+    Route::get('/artikel/verifikasi', [ArtikelVerifikasiController::class, 'verifikasiArtikel'])->name('artikel.verifikasi');
+    // Publish artikel
+    Route::get('/artikel/publish/{id}', [ArtikelVerifikasiController::class, 'publishArtikel'])->name('artikel.publish');
     Route::delete('/artikel/destroy/{id}', [ArtikelController::class, 'destroy_artikel'])->name('artikel.destroy');
 
     //Tag Artikel

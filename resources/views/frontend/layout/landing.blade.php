@@ -37,38 +37,31 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Dropdown untuk Kategori -->
+            <!-- Dropdown Kategori -->
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Kategori</a>
                 <div class="dropdown-menu m-0">
                     @foreach($kategori as $kat)
-                        <a href="#" class="dropdown-item">{{ $kat->nama_kategori }}</a>
-                    @endforeach
+                        <a href="{{ route('landing') }}?kategori={{ $kat->id }}" class="dropdown-item">
+                            {{ $kat->nama_kategori }}
+                        </a>
+                    @endforeach 
                 </div>
             </div>
 
-            <!-- Dropdown untuk Tag -->
+            <!-- Dropdown Tipe -->
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tipe</a>
                 <div class="dropdown-menu m-0">
                     @foreach($tags as $tag)
-                        <a href="#" class="dropdown-item">{{ $tag->nama_tag }}</a>
-                    @endforeach
+                        <a href="{{ route('landing') }}?tag={{ $tag->id }}" class="dropdown-item">
+                            {{ $tag->nama_tag }}
+                        </a>
+                    @endforeach 
                 </div>
             </div>
 
-            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
-                <div class="navbar-nav ml-auto">
-                    <!-- Tombol Login -->
-                    <a href="{{ route('login') }}" class="btn btn-info ml-2">
-                        <i class="fas fa-sign-in-alt"></i> Login
-                    </a>
-                    <!-- Tombol Register -->
-                    <a href="{{ route('register') }}" class="btn btn-info ml-2">
-                        <i class="fas fa-edit"></i> Register
-                    </a>
-                </div>
-            </div>
+
         </nav>
     </div>
 <!-- Navbar End -->

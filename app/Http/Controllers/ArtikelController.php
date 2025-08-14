@@ -120,6 +120,7 @@ class ArtikelController extends Controller
         return view('frontend.artikel.show', compact('artikel'));
     }
 
+
     public function destroy_artikel($id)
     {
         $artikel = Artikel::findOrFail($id);
@@ -133,23 +134,5 @@ class ArtikelController extends Controller
         ]);
 
         return back()->with('success', 'Artikel dihapus');
-    }
-
-    // 🔍 Method Search
-    public function search(Request $request)
-    {
-        $keyword = $request->input('q');
-
-        $artikel = Artikel::query()
-            ->when($keyword, function ($query) use ($keyword) {
-                $query->where('judul', 'like', "%{$keyword}%")
-                    ->orWhere('excerpt', 'like', "%{$keyword}%")
-                    ->orWhere('isi', 'like', "%{$keyword}%");
-            })
-            ->latest()
-            ->get();
-
-        $kategori = KategoriArtikel::all();
-        return view('landing', compact('artikel', 'kategori', 'tags'));
     }
 }

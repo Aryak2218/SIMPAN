@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SIMPKO | Log in</title>
+  <title>SIMPAN LOBAR | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,8 +17,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{ route('login') }}"><b>LOGIN</b> SIMPKO</a>
-  </div>
+  <a href="{{ route('login') }}" style="display: block; line-height: 1;">
+    <b>LOGIN</b><br>
+    <span style="font-size: 22px; font-weight: normal;">SIMPAN LOBAR</span>
+  </a>
+</div>
+
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
