@@ -44,18 +44,18 @@
           @enderror
         </div>
 
-        <!-- Password -->
-        <div class="input-group mb-3">
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
-            @error('password')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+       <!-- Password -->
+      <div class="input-group mb-3">
+        <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+        <div class="input-group-append">
+          <div class="input-group-text" style="cursor: pointer;" onclick="togglePassword()">
+            <span id="togglePasswordIcon" class="fas fa-eye"></span>
+          </div>
         </div>
+        @error('password')
+          <div class="invalid-feedback d-block">{{ $message }}</div>
+        @enderror
+      </div>
 
         <div class="row">
           <!-- /.col -->
@@ -74,9 +74,9 @@
           </div>
       </form>
 
-      <p class="mb-0" >
+      {{-- <p class="mb-0" >
         <a href="{{ route('register') }}" class="text-center">Create New Account</a>
-      </p>
+      </p> --}}
     </div>
     <!-- /.login-card-body -->
   </div>
@@ -90,6 +90,22 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const icon = document.getElementById('togglePasswordIcon');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    }
+  }
+</script>
 
 @if ($message = Session::get('success'))
     <script>
