@@ -85,8 +85,7 @@
                   <label for="status">Status</label>
                   <select name="status" class="form-control">
                     <option value="draft" {{ old('status') == 'draft' ? 'selected' : '' }}>Draft</option>
-                    <option value="published" {{ old('status') == 'published' ? 'selected' : '' }}>Published</option>
-                    <option value="archived" {{ old('status') == 'archived' ? 'selected' : '' }}>Archived</option>
+                    <option value="archived" {{ old('status') == 'archived' ? 'selected' : '' }}>In Review</option>
                   </select>
                   @error('status')<small class="text-danger">{{ $message }}</small>@enderror
                 </div>

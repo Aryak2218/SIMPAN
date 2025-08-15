@@ -41,9 +41,16 @@
                                 <td>{{ Str::limit($item->excerpt, 100) }}</td>
                                 <td>{{ ucfirst($item->status) }}</td>
                                 <td>
-                                    <a href="{{ route('artikel.show', $item->id) }}" class="btn btn-primary">Lihat</a>
-                                    <a href="{{ route('artikel.publish', $item->id) }}" class="btn btn-success">Publish</a>
-                                </td>
+                                <a href="{{ route('artikel.show', $item->id) }}" class="btn btn-primary">Lihat</a>
+                                <a href="{{ route('artikel.publish', $item->id) }}" class="btn btn-success">Publish</a>
+
+                                <!-- Button Reject -->
+                                <form action="{{ route('artikel.destroy', $item->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menolak dan menghapus artikel ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Reject</button>
+                                </form>
+                            </td>
                             </tr>
                             @endforeach
                         </tbody>

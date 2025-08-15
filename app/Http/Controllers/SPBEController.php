@@ -29,7 +29,6 @@ class SPBEController extends Controller
 
     public function create()
     {
-         // Generate nomor_id unik (contoh: SPBE-2025-0001)
         $nomorId = 'SPBE-' . date('Y') . '-' . str_pad(rand(1, 9999), 4, '0', STR_PAD_LEFT);
 
         $kategori = KategoriArtikel::all();

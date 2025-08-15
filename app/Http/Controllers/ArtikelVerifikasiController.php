@@ -11,7 +11,7 @@ class ArtikelVerifikasiController extends Controller
     // Menampilkan artikel draft untuk verifikasi
     public function verifikasiArtikel()
     {
-        $artikel = Artikel::where('status', 'draft')->latest()->paginate(10);
+        $artikel = Artikel::where('status', 'archived')->latest()->paginate(10);
         return view('backend.contents.artikel.verifikasi', compact('artikel'));
     }
 
