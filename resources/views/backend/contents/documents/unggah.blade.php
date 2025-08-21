@@ -63,7 +63,7 @@
               <tbody>
                 @foreach ($spbe as $item)
                 <tr>
-                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $loop->iteration + ($spbe->firstItem() - 1) }}</td>
                   <td>{{ $item->judul }}</td>
                   <td>{{ $item->penulis->name ?? '-' }}</td>
                   <td>{{ $item->instansi }}</td>
@@ -111,8 +111,8 @@
               </tbody>
             </table>
             <!-- Pagination -->
-            <div class="d-flex justify-content-center">
-              {{ $spbe->links() }}
+            <div class="card-footer clearfix">
+              {{ $spbe->links('pagination::bootstrap-4') }}
             </div>
           </div>
         </div>

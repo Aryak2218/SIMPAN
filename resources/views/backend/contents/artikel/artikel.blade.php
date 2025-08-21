@@ -61,7 +61,7 @@
                 <tbody>
                   @foreach ($artikel as $item)
                   <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration + ($artikel->firstItem() - 1) }}</td>
                     <td>
                       {{-- Cek dan tampilkan gambar jika file ada --}}
                       @if($item->thumbnail && file_exists(public_path($item->thumbnail)))
@@ -122,6 +122,10 @@
             </div>
             <!-- /.card-body -->
 
+             <!-- Pagination -->
+            <div class="card-footer clearfix">
+              {{ $artikel->links('pagination::bootstrap-4') }}
+            </div>
           </div>
         </div>
       </div>
