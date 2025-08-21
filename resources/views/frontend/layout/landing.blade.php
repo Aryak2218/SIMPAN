@@ -94,16 +94,15 @@
             <h1 class="display-4">Cari Artikel Pengetahuan</h1>
         </div>
         <div class="row">
-           @foreach ($artikel as $item)
-                @if ($item instanceof \App\Models\Artikel) <!-- Pastikan item adalah objek Artikel -->
+           @forelse ($artikel as $item)
+                @if ($item instanceof \App\Models\Artikel)
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card">
-                            <!-- Cek apakah artikel memiliki thumbnail -->
                             @if ($item->thumbnail && file_exists(public_path($item->thumbnail)))
                                 <img src="{{ asset($item->thumbnail) }}" class="card-img-top" alt="article thumbnail">
                             @else
                                 <div class="card-img-top" style="background-color: #f0f0f0; height: 180px; display: flex; justify-content: center; align-items: center;">
-                                    <span>No Thumbnail Available</span>  <!-- Tampilkan teks jika tidak ada thumbnail -->
+                                    <span>No Thumbnail Available</span>
                                 </div>
                             @endif
 
@@ -114,16 +113,22 @@
                             </div>
                         </div>
                     </div>
-                @else
-                    <!-- Jika $item bukan objek Artikel, tampilkan error atau abaikan -->
-                    <p>Artikel tidak ditemukan atau ada masalah dengan data.</p>
                 @endif
-            @endforeach
+            @empty
+                <div class="col-12 text-center">
+                    <p>Tidak ada artikel ditemukan.</p>
+                </div>
+            @endforelse
+        </div>
 
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-4">
+            {{ $artikel->links('pagination::bootstrap-4') }}
         </div>
     </div>
 </div>
 <!-- SPBE Articles End -->
+
 
 <!-- Footer Start -->
     <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">

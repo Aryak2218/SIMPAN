@@ -40,7 +40,7 @@ class LandingController extends Controller
                 });
             })
             ->latest()
-            ->paginate(10); // Pagination untuk 10 artikel per halaman
+            ->paginate(9); // Pagination untuk 10 artikel per halaman
 
         // Ambil semua kategori dan tag
         $kategori = KategoriArtikel::all();
